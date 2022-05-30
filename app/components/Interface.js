@@ -20,6 +20,11 @@ function Interface() {
       body: JSON.stringify({ prompt: text }),
     });
     const data = await res.json();
+    if (!data.success) {
+      alert("Error occured:", data.message);
+    } else {
+      setResult(data.text);
+    }
     console.log(data);
   };
 
@@ -55,9 +60,9 @@ function Interface() {
         <Divider />
         <br />
         <Grid container spacing={5}>
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <Typography>Response</Typography>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12}>
             <Box
               sx={{
@@ -68,6 +73,7 @@ function Interface() {
               }}
             >
               <Typography varian="h3"> GPT Previous Responses</Typography>
+              <Typography>{result}</Typography>
               {/* {map.previous((prev, i) => {
                 <div key={i}>
                   <Typography>{prev.text}</Typography>
