@@ -8,16 +8,9 @@ function Interface() {
   const [result, setResult] = useState([]);
   const [previous, setPrevious] = useState([]);
 
-  const handleSubmitPrompt = async () => {
-    console.log(text);
-    if (text.length < 1 || text.length > 2000)
-      return console.log("text is either too long or too short");
-    const res = await fetch("/api/gptprompt.js", {
-      method: "POST",
-      body: { prompt: text },
-    });
-  };
-
+  //   console.log(text);
+  if (text.length < 1 || text.length > 2000)
+    console.log("text is either too long or too short");
   return (
     <div>
       <Box
@@ -41,9 +34,7 @@ function Interface() {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button onClick={handleSubmitPrompt} variant="contained">
-              Submit
-            </Button>
+            <Button variant="contained">Submit</Button>
           </Grid>
         </Grid>
         <br />
@@ -62,7 +53,7 @@ function Interface() {
                 p: 5,
               }}
             >
-              <Typography> GPT Previous Responses</Typography>
+              <Typography varian="h3"> GPT Previous Responses</Typography>
               {/* {map.previous((prev, i) => {
                 <div key={i}>
                   <Typography>{prev.text}</Typography>
