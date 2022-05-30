@@ -46,9 +46,7 @@ function Interface() {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button onClick={handleSubmitPrompt} variant="contained">
-              Submit
-            </Button>
+            <Button variant="contained">Submit</Button>
           </Grid>
         </Grid>
         <br />
@@ -67,7 +65,7 @@ function Interface() {
                 p: 5,
               }}
             >
-              <Typography> GPT Previous Responses</Typography>
+              <Typography varian="h3"> GPT Previous Responses</Typography>
               {/* {map.previous((prev, i) => {
                 <div key={i}>
                   <Typography>{prev.text}</Typography>
