@@ -8,9 +8,16 @@ function Interface() {
   const [result, setResult] = useState([]);
   const [previous, setPrevious] = useState([]);
 
-  console.log(text);
-  if (text.length < 1 || text.length > 2000)
-    console.log("text is either too long or too short");
+  const handleSubmitPrompt = async () => {
+    console.log(text);
+    if (text.length < 1 || text.length > 2000)
+      return console.log("text is either too long or too short");
+    const res = await fetch("/api/gptprompt.js", {
+      method: "POST",
+      body: { prompt: text },
+    });
+  };
+
   return (
     <div>
       <Box
@@ -34,7 +41,9 @@ function Interface() {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained">Submit</Button>
+            <Button onClick={handleSubmitPrompt} variant="contained">
+              Submit
+            </Button>
           </Grid>
         </Grid>
         <br />
