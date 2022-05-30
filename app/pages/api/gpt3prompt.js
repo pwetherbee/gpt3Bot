@@ -17,8 +17,8 @@ export default async function handler(req, res) {
   try {
     const gptGenText = await openai.createCompletion("text-davinci-002", {
       prompt: prompt,
-      temperature: 0,
-      max_tokens: 100,
+      temperature: 0.7,
+      max_tokens: 300,
     });
     res.send({
       success: true,
