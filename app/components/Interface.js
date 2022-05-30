@@ -46,7 +46,9 @@ function Interface() {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained">Submit</Button>
+            <Button onClick={handleSubmitPrompt} variant="contained">
+              Submit
+            </Button>
           </Grid>
         </Grid>
         <br />
