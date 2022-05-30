@@ -12,10 +12,15 @@ function Interface() {
     console.log(text);
     if (text.length < 1 || text.length > 2000)
       return console.log("text is either too long or too short");
-    const res = await fetch("/api/gptprompt.js", {
+    const res = await fetch("/api/gpt3prompt", {
       method: "POST",
-      body: { prompt: text },
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ prompt: text }),
     });
+    const data = await res.json();
+    console.log(data);
   };
 
   return (
