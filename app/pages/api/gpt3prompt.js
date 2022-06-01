@@ -17,12 +17,12 @@ export default async function handler(req, res) {
   try {
     const gptGenText = await openai.createCompletion("text-davinci-002", {
       prompt: prompt,
-      temperature: 0.7,
+      temperature: 0.9,
       max_tokens: 300,
     });
     res.send({
       success: true,
-      text: gptGenText.data.choices[0].text,
+      texts: gptGenText.data.choices,
     });
   } catch (e) {
     console.log(e);

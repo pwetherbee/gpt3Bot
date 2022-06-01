@@ -23,7 +23,7 @@ function Interface() {
     if (!data.success) {
       alert("Error occured:", data.message);
     } else {
-      setResult(data.text);
+      setResult(data.texts);
     }
     console.log(data);
   };
@@ -66,14 +66,21 @@ function Interface() {
           <Grid item xs={12}>
             <Box
               sx={{
+                overflowWrap: "break word",
                 bgcolor: "black",
                 color: "white",
                 borderRadius: 10,
+                width: "100%",
                 p: 5,
               }}
             >
               <Typography varian="h3"> GPT Previous Responses</Typography>
-              <Typography>{result}</Typography>
+              {result.map((item) => (
+                <Box>
+                  <Typography>{item.text}</Typography>
+                </Box>
+              ))}
+
               {/* {map.previous((prev, i) => {
                 <div key={i}>
                   <Typography>{prev.text}</Typography>
